@@ -1,3 +1,15 @@
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* stop horizontal scroll */
+}
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
 /* Enhanced Modern CSS with Beautiful Styling */
 
 /* Reset & Base Styles */
@@ -365,7 +377,7 @@ html {
 
 .property-grid {
   display: grid; 
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
   gap: 2.5rem;
   max-width: 1400px;
   margin: 0 auto;
@@ -508,6 +520,7 @@ html {
   gap: 1rem;
   margin: 1.5rem;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .enquire-btn,
@@ -646,6 +659,8 @@ footer {
   .nav-links {
     width: 220px;
     padding: 1.5rem;
+    max-width: 100vw; /* prevents pushing layout wider */
+    overflow-x: hidden;
   }
 
   /* Hero */
