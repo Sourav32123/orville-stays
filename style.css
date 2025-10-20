@@ -20,17 +20,15 @@ img, video, iframe {
 }
 
 
-body {
-  font-family: 'Exo 2', sans-serif;
-  color: #1a202c;
-  line-height: 1.7;
-   background: rgb(6, 61, 155);
-  background-size: 100% 300px; /* width 100%, height 300px */
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+body { font-family: 'Exo 2', sans-serif;
+   color: #1a202c;
+    line-height: 1.7; 
+    /* background: rgb(6, 61, 155); */
+     background-size: 100% 300px; 
+     /* width 100%, height 300px */ background-repeat: no-repeat; 
+     min-height: 100vh;
+   -webkit-font-smoothing: antialiased; 
+   -moz-osx-font-smoothing: grayscale; }
 
 /* Smooth scrolling */
 html {
@@ -178,13 +176,11 @@ html {
   position: relative;
   height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;   /* keep vertical center */
-  align-items: center;       /* keep horizontal center */
+  justify-content: center;   /* vertical centering */
+  align-items: center;
   text-align: center;
   padding: 0 20px;
   background: url('images/alex-tyson-kXpGvO-ZxmA-unsplash(1).jpg') no-repeat center center/cover;
-  z-index: -1; /* keeps the image behind text */
   color: white;
 }
 
@@ -199,79 +195,120 @@ html {
   z-index: 1;
 }
 
-.hero * {
+/* Hero Content */
+.hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 2;           /* above background & logos */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Remove animations, adjust font family and size */
+/* Hero Text */
 .hero h1 {
-  font-family: 'Exo 2', sans-serif;  /* new font */
-  font-weight: 500;                   /* medium weight */
-  font-size: 2.5rem;                  /* keep your desired size */
-  color: white;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  margin-bottom: 1rem;
-}
-
-
-.hero h1 span {
   font-family: 'Exo 2', sans-serif;
   font-weight: 500;
+  font-size: 2.5rem;
   color: white;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  margin-bottom: 0.5rem;
 }
 
+.hero h1 span {
+  color: white;
+  font-weight: 500;
+}
 
 .hero p {
-  font-size: 1.2rem;              
-  font-family: 'Exo 2', sans-serif;;
+  font-size: 1.2rem;
+  font-family: 'Exo 2', sans-serif;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: 700;
-  color: rgb(255, 228, 0);  /* Yellow color */
-  margin-top: 0.5rem;
+  color: rgb(255, 228, 0);
+  margin-bottom: 2rem;
 }
 
-
+/* Hero Button */
 .hero-btn {
   display: inline-block;
-  margin-top: 1.5rem;
-  background: linear-gradient(135deg, rgb(8, 83, 211) 0%, rgb(0, 60, 180) 100%);
+  margin-top: 2rem;
+  background-color: rgb(8, 83, 211);
   color: white;
-  padding: 0.6rem 1.5rem;
+  padding: 0.8rem 2rem;
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.4s ease;
-  box-shadow: 0 8px 20px rgba(8, 83, 211, 0.4);
-  position: relative;
+  transition: all 0.3s ease;
   z-index: 2;
-  overflow: hidden;
-}
-
-.hero-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-  transition: left 0.4s ease;
-  z-index: -1;
-}
-
-.hero-btn:hover::before {
-  left: 0;
 }
 
 .hero-btn:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.6);
+  background-color: rgb(0, 60, 180);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(8, 83, 211, 0.4);
 }
+
+/* Hero Logos */
+/* Hero Logos */
+.hero-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;       /* keep horizontal */
+  gap: 2rem;
+
+  position: absolute;
+  bottom: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  max-width: 1200px;
+  z-index: 1; /* behind button */
+}
+
+/* Each logo container */
+.hero-logo {
+  display: flex;
+  flex-direction: column;   /* stack image above span */
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  width: 80px;              /* fixed width to keep all logos same size */
+  flex-shrink: 0;           /* prevents shrinking in nowrap */
+  text-align: center;
+}
+
+/* Logo images */
+.hero-logo img {
+  width: 40px;              /* consistent size */
+  height: 40px;             /* consistent size */
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* keeps logo white */
+  opacity: 0.9;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hero-logo img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Text below each logo */
+.hero-logo span {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: white;
+  text-align: center;
+}
+
+
+
+
 
 /* Animations */
 @keyframes float {
@@ -308,11 +345,20 @@ html {
   position: relative;
   z-index: 10;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  
 
   /* Added */
   min-height: 400px;  /* ensures white box is tall */
   padding-bottom: 8rem; /* gives extra space at bottom */
 }
+
+.about-section {
+  background: linear-gradient(135deg, rgb(6, 61, 155) 0%, rgb(20, 80, 190) 100%);
+  padding: 8rem 2rem;
+  position: relative;
+  z-index: 1;
+}
+
 
 
 
