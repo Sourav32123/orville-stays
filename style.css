@@ -356,7 +356,7 @@ html {
   background: 
     url('images/Untitled-3-01.png') repeat, /* your texture PNG */
     linear-gradient(135deg, rgb(6, 61, 155) 0%, rgb(20, 80, 190) 100%);
-  background-size:auto; /* or cover/contain depending on texture */
+  background-size:100%auto,auto; /* or cover/contain depending on texture */
   background-blend-mode: overlay; /* makes texture blend with blue */
   padding: 8rem 2rem;
   position: relative;
