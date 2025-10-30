@@ -261,15 +261,33 @@
 
 
 <!-- Contact Form -->
-    <form class="contact-form" action="https://formspree.io/f/mzzaonjw" method="POST">
-    <input type="text" name="fullName" placeholder="Full Name" required />
-    <input type="tel" name="phone" placeholder="Phone Number" required />
-    <input type="email" name="email" placeholder="Email Address" required />
-    <textarea name="message" placeholder="Message" required></textarea>
-    <button type="submit">Send Enquiry</button>
-    </form>
+<form class="contact-form" onsubmit="sendToWhatsApp(event)">
+  <input type="text" id="fullName" placeholder="Full Name" required />
+  <input type="tel" id="phone" placeholder="Phone Number" required />
+  <input type="email" id="email" placeholder="Email Address" required />
+  <textarea id="message" placeholder="Message" required></textarea>
+  <button type="submit">Send Enquiry</button>
+</form>
 
-  </section>
+<script>
+function sendToWhatsApp(event) {
+  event.preventDefault(); // Prevent form from refreshing page
+
+  const name = document.getElementById("fullName").value;
+  const phone = document.getElementById("phone").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  const whatsappMessage = `*New Enquiry Received*\n\n👤 Name: ${name}\n📞 Phone: ${phone}\n📧 Email: ${email}\n💬 Message: ${message}`;
+  const encodedMessage = encodeURIComponent(whatsappMessage);
+
+  // Your WhatsApp number with country code (India = 91)
+  const whatsappNumber = "917899298916";
+
+  // Open WhatsApp chat with prefilled message
+  window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
+}
+</script>
 <script>
 window.addEventListener('scroll', function() {
   const navbar = document.querySelector('.navbar');
@@ -280,11 +298,14 @@ window.addEventListener('scroll', function() {
   }
 });
 </script>
+<!-- Footer -->
+<footer class="footer">
+  <p>© 2025 Orville Stays. All rights reserved.</p>
+</footer>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>© 2025 Orville Stays. All rights reserved.</p>
-  </footer>
+
+
+
 
   <script src="script.js"></script>
 </body>

@@ -356,19 +356,12 @@ html {
   background: 
     url('images/Untitled-3-01.png') repeat, /* your texture PNG */
     linear-gradient(135deg, rgb(6, 61, 155) 0%, rgb(20, 80, 190) 100%);
-  background-size:100%auto,auto; /* or cover/contain depending on texture */
+  background-size:110%auto,auto; /* or cover/contain depending on texture */
   background-blend-mode: overlay; /* makes texture blend with blue */
   padding: 8rem 2rem;
   position: relative;
   z-index: 1;
 }
-
-
-
-
-
-
-
 
 
 .about h2 { 
@@ -693,17 +686,6 @@ html {
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* Footer */
-footer {
-  text-align: center; 
-  padding: 2rem; 
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  color: #4a5568;
-  font-size: 0.95rem;
-  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.1);
-}
 
 /* ========================
    RESPONSIVE FIXES
@@ -795,9 +777,6 @@ footer {
     font-size: 0.9rem;
   }
 
-  footer {
-    font-size: 0.8rem;
-  }
 }
 /* Social Links */
 .social-links {
@@ -818,5 +797,17 @@ footer {
   position: relative;
 }
 
+/* Footer */
+.footer {
+  margin-top: 75px;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: -3px solid rgba(0, 0, 0, 0.1);
+  color: #4a5568;
+  font-size: 0.95rem;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+}
 
 
